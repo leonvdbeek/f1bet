@@ -15,7 +15,15 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.conf.urls import include
+from django.views.generic.base import RedirectView
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+
+    # include f1better urls
+    path('f1better/', include('f1better.urls')),
+
+    # Redirect empty url to f1better app.
+    path('', RedirectView.as_view(url='/f1better/')),
 ]
