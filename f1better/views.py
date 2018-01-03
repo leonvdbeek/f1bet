@@ -11,7 +11,9 @@ from django.contrib.auth.models import User
 
 # Create your views here.
 def index(request):
-    return render(request, "index.html")
+    tracks = Track.objects.all()
+    context = {'tracks': tracks}
+    return render(request, "index.html", context)
 
 def register(request):
     if request.method == 'POST':

@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 
 class Track(models.Model):
     name = models.CharField(max_length=250)
-    image = models.FileField()
+    event = models.CharField(max_length=250)
+    image = models.CharField(max_length=1000)
 
 class Driver(models.Model):
     name = models.CharField(max_length=250)
